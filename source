@@ -1,0 +1,21 @@
+game:GetService("Workspace")["New Map 2021 - 2022  Boombox"]["MINI GAME - HERE"]["Bloque Desaparecer y Recive Cash"]["Kill Brick"]:Destroy()
+
+	local path = game:GetService("Workspace")["New Map 2021 - 2022  Boombox"]["MINI GAME - HERE"]["Bloque Desaparecer y Recive Cash"]:GetChildren()
+
+	local function teleportTo(child)
+		if child:IsA("BasePart") then
+			local currentPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = child.CFrame
+			if game.Players.LocalPlayer.Character.HumanoidRootPart.Position == currentPosition then
+				currentPosition = currentPosition + Vector3.new(0, 2.5, 0)
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(currentPosition)
+			end
+		end
+	end
+
+	while true do
+		for _, child in pairs(path) do
+			teleportTo(child)
+			wait()
+		end
+	end
